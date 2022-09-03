@@ -12,16 +12,53 @@ let rotatingAsB = document.querySelector("#b");
 let rotatingAsC = document.querySelector("#c");
 let rotatingAsD = document.querySelector("#d");
 let container = document.querySelector(".container");
+let countDownTimer = document.querySelector(".timer");
+
+let timer = 60;
+let intervalId;
 
 let currentQ = 0;
+
 renderQ();
 
-container.addEventListener("click",function(){
-    
-    currentQ++;
-    renderQ();
+startCountDown();
 
-});
+if (currentQ === 0)
+    rotatingAsC.addEventListener("click",function(){
+        currentQ++;
+        renderQ();
+    });
+if (currentQ === 1)
+    rotatingAsA.addEventListener("click",function(){
+        currentQ++;
+        renderQ();
+    });
+if (currentQ === 2)
+    rotatingAsA.addEventListener("click",function(){
+        currentQ++;
+        renderQ();
+    });
+if (currentQ === 3)
+    rotatingAsD.addEventListener("click",function(){
+        currentQ++;
+        renderQ();
+    });
+if (currentQ === 2)
+    rotatingAsB.addEventListener("click",function(){
+        currentQ++;
+        renderQ();
+    });
+
+function startCountDown(){
+    
+    intervalId = setInterval(function(){
+        timer --;
+        countDownTimer.textContent = timer;
+        if (timer === 0){
+            clearInterval(intervalId);
+        }
+    },1000)
+}
 
 function renderQ(){
     
