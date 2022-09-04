@@ -7,7 +7,7 @@ header {
     background-color: darkblue;
     color: white;
     padding: 20px;
-    margin: 0;
+    margin-bottom: 30px;
 }
 
 h1 {
@@ -18,18 +18,21 @@ h1 {
     margin: auto;
     width: 75%;
     border: 2px darkblue solid;
+    padding-bottom: 30px;
+    border-radius: 10px;
 }
 
 .container h2 {
     background-color: darkblue;
     color: white;
     margin-top: 0;
+    margin-bottom: 0px;
     padding: 30px;
 }
 
 .container ol  {
-    margin-left: 0px;
     padding: 30px;
+    margin: 0px;
 }
 
 .container li {
@@ -44,3 +47,13 @@ h2 {
 ol {
     list-style: upper-alpha;
 }
+
+.btn {
+    text-decoration: none;
+    color: white;
+    background-color: darkblue;
+    border-radius: 5px;
+    margin: 15px;
+    padding: 15px;
+}
+
