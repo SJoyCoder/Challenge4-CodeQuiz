@@ -23,3 +23,6 @@ h1 {
     padding: 15px;
 }
 
+.btn:hover {
+    box-shadow: 0 0 10px 2px darkblue;
+}
