@@ -11,7 +11,7 @@ let rotatingAsA = document.querySelector("#a");
 let rotatingAsB = document.querySelector("#b");
 let rotatingAsC = document.querySelector("#c");
 let rotatingAsD = document.querySelector("#d");
-let answerButton = document.querySelector("button")
+let answerButton = document.querySelector("#answers")
 let container = document.querySelector(".container");
 let countDownTimer = document.querySelector("#timer");
 
@@ -22,7 +22,7 @@ let intervalId;
 let currentQ = [0];
 console.log(currentQ)
 
-let correctAnswer = quizQs[currentQ].correctAnswer;
+let correctAnswer = quizQs[currentQ].correctAnswer();
 console.log(correctAnswer);
 
 let currentAnswers = quizQs[currentQ].answers;
@@ -31,9 +31,12 @@ console.log(currentAnswers)
 renderQ();
 startCountDown();
 
-currentAnswers.addEventListner("click", function () {
+answers.addEventListner("click", function () {
     currentQ++;
     renderQ();
+    if (answerButton !== correctAnswer){
+        timer --
+    }
 });
 
 function startCountDown(){
