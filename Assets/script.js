@@ -27,6 +27,11 @@ console.log(correctAnswer);
 
 let currentAnswers = quizQs[currentQ].answers;
 
+let correct = answers[currentQ] === correctAnswer[currentAnswers];
+let incorrect = answers[currentQ] !== correctAnswer[currentAnswers];
+console.log(correct);
+console.log(incorrect);
+
 renderQ();
 startCountDown();
 
@@ -37,8 +42,10 @@ answers.addEventListener("click", function () {
     currentQ++;
     renderQ();
     }
+    if (incorrect)
+    timer = timer -10;
+    countDownTimer = timer;
 });
-
 
 function startCountDown(){
     
