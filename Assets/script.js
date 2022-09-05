@@ -11,7 +11,7 @@ let rotatingAsA = document.querySelector("#a");
 let rotatingAsB = document.querySelector("#b");
 let rotatingAsC = document.querySelector("#c");
 let rotatingAsD = document.querySelector("#d");
-let answerButton = document.querySelector("#answers")
+let answerButton = document.querySelector("#answers");
 let container = document.querySelector(".container");
 let countDownTimer = document.querySelector("#timer");
 
@@ -35,16 +35,17 @@ console.log(incorrect);
 renderQ();
 startCountDown();
 
-answers.addEventListener("click", function () {
+answerButton.addEventListener("click", (tracking) {
     if (currentQ === lastQ){
         quizOver();
     }else{
     currentQ++;
     renderQ();
     }
-    if (incorrect)
-    timer = timer -10;
-    countDownTimer = timer;
+    if (answerButton === incorrect){
+        timer = timer -10;
+        countDownTimer = timer;
+    }
 });
 
 function startCountDown(){
