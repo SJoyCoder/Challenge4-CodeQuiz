@@ -74,7 +74,7 @@ function renderQ(){
 
 function quizOver(){
     console.log(timer);
-    
+
     currentQuestion.style.display = "none";
-    highScores.style.display = "none";
+    highScores.style.display = "visible";
 }
