@@ -12,22 +12,30 @@
     <header>
         <h1>Code Quiz!</h1>
     </header>
+    
+    <div class="container">
 
     <h3 id="timer"></h3>
     
-    <div class="container">
-       
+       <div id="#question">
         <h2></h2>
         <div class="grid-answers" id="answers">
-            <button id="a"></button>
-            <button id="b"></button>
-            <button id="c"></button>
-            <button id="d"></button>
+            <button id="a" onclick="checkCorrect(this)"></button>
+            <button id="b" onclick="checkCorrect(this)"></button>
+            <button id="c" onclick="checkCorrect(this)"></button>
+            <button id="d" onclick="checkCorrect(this)"></button>
         </div>
-        
+    </div>
         <a href="./index.html" class="btn">Back to Home</a>
         <a href="./highscore.html" class="btn">High Scores</a>
     </div>
+
+    <div id="hsInput">
+       <h1>High Scores!</h1> 
+        <input type="text">
+        <button onclick="inputInitials()">Input Initials</button>
+    </div>
+
     <script src="./Assets/script.js"></script>
 </body>
 </html>
