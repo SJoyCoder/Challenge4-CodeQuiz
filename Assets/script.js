@@ -26,6 +26,8 @@ let currentQ = 0;
 
 let currentAnswers = quizQs[currentQ].answers;
 
+let highScoreList = []
+
 //show questions and start count down
 renderQ();
 startCountDown();
@@ -92,20 +94,28 @@ function quizOver(){
 
 //shows score
 function renderScore(){
+    if (localStorage.getItem("highScores") !== null)
+    highScoreList = JSON.parse(localStorage.getItem("highScores"));
     let yourScore = JSON.parse(localStorage.getItem("timer"));
     score.textContent = "Your Score is " + yourScore + "!";
 }
 
 //inputs initials 
-var userInput = document.getElementById("initials").value;
+var userInput;
 function inputInitials(i){
+    userInput = document.getElementById("initials").value;
     console.log(userInput);
-    localStorage.setItem("initials", JSON.stringify(userInput));
-    renderInitials;
+    let scoreObject = {score:timer, initials:userInput};
+    highScoreList.push(scoreObject);
+    localStorage.setItem("highScores", JSON.stringify(highScoreList));
+    renderInitials();
 }
 
 //shows initials
 function renderInitials(){
-    let yourScore = JSON.parse(localStorage.getItem("initials"));
-    document.getElementById("hs1").textContent = userInput + yourScore;
+    //create li,loop, append object
+    let newScore = document.createElement("li");
+    newScore.textContent = highScoreList;
+    for (let hs = 0; hs < highScoreList.length; hs++) 
+    document.getElementById("hsList").append(userInput);
 }
