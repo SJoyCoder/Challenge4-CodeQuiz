@@ -6,6 +6,7 @@ let quizQs = [
     {question: "True or False. CSS only affects the style of a page.", answers: ["A. true", "B. false", "C. rock", "D. paper"], correctAnswer: "B. false"}
 ];
 
+//all my declarations
 let rotatingQs = document.querySelector("h2");
 let rotatingAsA = document.querySelector("#a");
 let rotatingAsB = document.querySelector("#b");
@@ -25,11 +26,11 @@ let currentQ = 0;
 
 let currentAnswers = quizQs[currentQ].answers;
 
-// highScores.style.display = "none";
-
+//show questions and start count down
 renderQ();
 startCountDown();
 
+//have the questions cycle through when clicked or end quiz once at end
 answerButton.addEventListener("click", function () {
     if (currentQ === lastQ){
         clearInterval(intervalId)
@@ -40,7 +41,7 @@ answerButton.addEventListener("click", function () {
     }
 })
 
-
+//check the content of the buttons to see if they're the correct answer and then what to do with it
 function checkCorrect(e){
     let correctAnswer = quizQs[currentQ].correctAnswer;
     console.log(e.textContent)
@@ -53,7 +54,7 @@ function checkCorrect(e){
     }
 }
 
-
+//countdown function
 function startCountDown(){
     
     intervalId = setInterval(function(){
@@ -66,6 +67,7 @@ function startCountDown(){
     },1000)
 }
 
+//input content to run through
 function renderQ(){
     
     rotatingQs.textContent = quizQs[currentQ].question;
@@ -76,6 +78,7 @@ function renderQ(){
     
 };
 
+//what needs to happen when quiz stops
 function quizOver(){
     currentQuestion.style.display = "none";
     if (currentQuestion.style.display === "none"){
@@ -87,6 +90,7 @@ function quizOver(){
     renderScore();
 }
 
+//shows score
 function renderScore(){
     let yourScore = localStorage.getItem("timer");
     if (yourScore !== null) {
@@ -94,6 +98,7 @@ function renderScore(){
     };
 }
 
+//inputs initials 
 function inputInitials(i){
     var userInput = document.getElementById("initials").value;
     console.log(userInput);
@@ -101,6 +106,7 @@ function inputInitials(i){
     renderInitials;
 }
 
+//shows initials
 function renderInitials(){
     let yourHighScore = localStorage.getItem("initials");
     if (yourHighScore !== null) {
