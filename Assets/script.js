@@ -17,7 +17,7 @@ let countDownTimer = document.querySelector("#timer");
 let currentQuestion = document.querySelector("#question")
 let lastQ = quizQs.length-1;
 let highScores = document.querySelector("#hsInput");
-let score = document.getElementById("#finalScore");
+let score = document.getElementById("finalScore");
 
 let timer = 60;
 let intervalId;
@@ -86,30 +86,26 @@ function quizOver(){
     }else{currentQuestion.style.display = "block";
     }
     console.log(timer);
-    localStorage.setItem ("timer", timer);
+    localStorage.setItem("timer", JSON.stringify(timer));
     renderScore();
 }
 
 //shows score
 function renderScore(){
-    let yourScore = localStorage.getItem("timer");
-    if (yourScore !== null) {
-      score.textContent = "Your Score is " + yourScore + "!"
-    };
+    let yourScore = JSON.parse(localStorage.getItem("timer"));
+    score.textContent = "Your Score is " + yourScore + "!";
 }
 
 //inputs initials 
+var userInput = document.getElementById("initials").value;
 function inputInitials(i){
-    var userInput = document.getElementById("initials").value;
     console.log(userInput);
-    localStorage.setItem("initials", userInput);
+    localStorage.setItem("initials", JSON.stringify(userInput));
     renderInitials;
 }
 
 //shows initials
 function renderInitials(){
-    let yourHighScore = localStorage.getItem("initials");
-    if (yourHighScore !== null) {
-        document.getElementById("#hs1").textContent = userInput + yourScore;
-    }
+    let yourScore = JSON.parse(localStorage.getItem("initials"));
+    document.getElementById("hs1").textContent = userInput + yourScore;
 }
