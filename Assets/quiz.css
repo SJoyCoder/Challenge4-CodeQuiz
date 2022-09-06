@@ -81,3 +81,7 @@ ol {
 #hsInput input {
     height: 40px;
 }
+
+#hsList {
+    list-style: none;
+}

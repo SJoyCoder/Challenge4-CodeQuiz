@@ -94,9 +94,16 @@ function renderScore(){
     };
 }
 
-function inputInitials(){
-    let userInput = document.getElementById("#initials");
+function inputInitials(i){
+    var userInput = document.getElementById("initials").value;
     console.log(userInput);
-    localStorage.setItem("initials", JSON.stringify());
-    renderScore;
+    localStorage.setItem("initials", userInput);
+    renderInitials;
+}
+
+function renderInitials(){
+    let yourHighScore = localStorage.getItem("initials");
+    if (yourHighScore !== null) {
+        document.getElementById("#hs1").textContent = userInput + yourScore;
+    }
 }
