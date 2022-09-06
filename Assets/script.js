@@ -101,11 +101,12 @@ function renderScore(){
 }
 
 //inputs initials 
-var userInput;
+let userInput;
+let scoreObject;
 function inputInitials(i){
     userInput = document.getElementById("initials").value;
     console.log(userInput);
-    let scoreObject = {score:timer, initials:userInput};
+    scoreObject = {score:timer, initials:userInput};
     highScoreList.push(scoreObject);
     localStorage.setItem("highScores", JSON.stringify(highScoreList));
     renderInitials();
@@ -114,8 +115,9 @@ function inputInitials(i){
 //shows initials
 function renderInitials(){
     //create li,loop, append object
-    let newScore = document.createElement("li");
-    newScore.textContent = highScoreList;
-    for (let hs = 0; hs < highScoreList.length; hs++) 
-    document.getElementById("hsList").append(userInput);
+    for (let i = 0; i < highScoreList.length; i++) {
+        let currentScore = document.createElement("li");
+        currentScore.textContent = highScoreList[i].initials + ": " + highScoreList[i].score;
+        document.getElementById("hsList").append(currentScore);
+    }
 }
