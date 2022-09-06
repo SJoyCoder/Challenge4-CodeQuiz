@@ -74,9 +74,9 @@ ol {
     box-shadow: 0 0 10px 2px darkblue;
 }
 
-#hsInput {
+/* #hsInput {
     visibility: hidden;
-}
+} */
 
 #hsInput input {
     height: 40px;

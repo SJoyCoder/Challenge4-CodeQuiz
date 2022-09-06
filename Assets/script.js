@@ -16,6 +16,7 @@ let countDownTimer = document.querySelector("#timer");
 let currentQuestion = document.querySelector("#question")
 let lastQ = quizQs.length-1;
 let highScores = document.querySelector("#hsInput");
+let score = document.getElementById("#finalScore");
 
 let timer = 60;
 let intervalId;
@@ -24,11 +25,14 @@ let currentQ = 0;
 
 let currentAnswers = quizQs[currentQ].answers;
 
+// highScores.style.display = "none";
+
 renderQ();
 startCountDown();
 
 answerButton.addEventListener("click", function () {
     if (currentQ === lastQ){
+        clearInterval(intervalId)
         quizOver();
     }else{
         currentQ++;
@@ -73,8 +77,26 @@ function renderQ(){
 };
 
 function quizOver(){
-    console.log(timer);
-
     currentQuestion.style.display = "none";
-    highScores.style.display = "visible";
+    if (currentQuestion.style.display === "none"){
+        highScores.style.display = "block";
+    }else{currentQuestion.style.display = "block";
+    }
+    console.log(timer);
+    localStorage.setItem ("timer", timer);
+    renderScore();
+}
+
+function renderScore(){
+    let yourScore = localStorage.getItem("timer");
+    if (yourScore !== null) {
+      score.textContent = "Your Score is " + yourScore + "!"
+    };
+}
+
+function inputInitials(){
+    let userInput = document.getElementById("#initials");
+    console.log(userInput);
+    localStorage.setItem("initials", JSON.stringify());
+    renderScore;
 }
